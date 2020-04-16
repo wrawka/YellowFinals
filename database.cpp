@@ -5,8 +5,8 @@
  *      Author: A.Lebedev
  */
 
-#include "date.h"
-#include "database.h"
+#include "Date.h"
+#include "Database.h"
 #include <set>
 
 

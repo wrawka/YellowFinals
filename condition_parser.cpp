@@ -1,4 +1,4 @@
-#include "token.h"
+#include "Token.h"
 #include <map>
 using namespace std;
 
@@ -58,7 +58,7 @@ template <class It> shared_ptr<Node> ParseComparison(It& current, It end) {
 template <class It>
 shared_ptr<Node> ParseExpression(It& current, It end, unsigned precedence) {
   if (current == end) {
-    return shared_ptr<Node>(); // если интервал на входе пуст, возвращаем EmptyNode
+    return shared_ptr<Node>(); // пїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ, пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ EmptyNode
   }
 
   shared_ptr<Node> left;

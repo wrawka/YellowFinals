@@ -6,8 +6,9 @@ using namespace std;
 
 // конструктор выбрасывает исключение, если его аргументы некорректны
 Date::Date(int new_year = 1970, int new_month = 1, int new_day = 1) {
-
-  year = new_year;	//год может быть любым
+  
+  //год может быть любым
+  year = new_year;	
 
   //проверка значения месяца
   if (new_month > 12 || new_month < 1) {
@@ -24,14 +25,18 @@ Date::Date(int new_year = 1970, int new_month = 1, int new_day = 1) {
 
 int Date::GetYear() const 	{ return year; }
 int Date::GetMonth() const 	{ return month; }
-int Date::GetDay() const 	{ return day; }
+int Date::GetDay() const 	  { return day; }
 
 
 ostream& operator<< (ostream& out, const Date& date) {
-	  out << setw(4) << setfill('0') << date.year << "-" <<
-			 setw(2) << setfill('0') << date.month << "-" <<
-			 setw(2) << setfill('0') << date.day;
+	  out << setw(4) << setfill('0') << date.year << "-"
+			  << setw(2) << setfill('0') << date.month << "-"
+        << setw(2) << setfill('0') << date.day;
 	  return out;
+}
+
+bool operator== (const Date& lhs, const Date& rhs) {
+  return (lhs.year == rhs.year && lhs.month == rhs.month && lhs.day == rhs.day);
 }
 
 Date ParseDate(istringstream& date_stream) {

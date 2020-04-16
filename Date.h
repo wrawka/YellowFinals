@@ -14,6 +14,7 @@ public:
   int GetDay() const;
 
   friend std::ostream& operator<< (std::ostream& out, const Date& date);
+  friend bool operator== (const Date& lhs, const Date& rhs);
 
 private:
   int year;
@@ -22,6 +23,5 @@ private:
 };
 
 Date ParseDate(std::istringstream& date_stream);
-
 
 #endif /* DATE_H_ */

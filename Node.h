@@ -1,4 +1,5 @@
 #pragma once
+#include "Date.h"
 
 class Node
 {
@@ -7,12 +8,22 @@ private:
 public:
     Node(/* args */);
     ~Node();
+    bool Evaluate(Date date, std::string condition);
 };
 
-Node::Node(/* args */)
-{
-}
 
-Node::~Node()
-{
-}
+class EmptyNode : public Node {
+
+};
+
+class LogicalOperationNode : public Node {
+
+};
+
+class DateComparisonNode : public Node {
+
+};
+
+class EventComparisonNode : public Node {
+
+};

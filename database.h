@@ -1,10 +1,3 @@
-/*
- * database.h
- *
- *  Created on: 13 февр. 2020 г.
- *      Author: A.Lebedev
- */
-
 #ifndef DATABASE_H_
 #define DATABASE_H_
 
@@ -30,7 +23,7 @@ public:
 	 * События в рамках одной даты необходимо выводить в порядке добавления
 	 * (за исключением уже удалённых и попыток добавления повторов).
 	 */
-	  void Print() const;
+	void Print() const;
 
 	/*
 	 * По команде Last date нужно вывести

@@ -8,11 +8,15 @@
 #include <stdexcept>
 #include <vector>
 #include <string>
+#include <sstream>
 
 using namespace std;
 
 string ParseEvent(istream& is) {
  // Реализуйте эту функцию
+  string out;
+  getline(is, out);
+  return out;
 }
 
 void TestAll();

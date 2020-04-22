@@ -39,6 +39,12 @@ bool operator== (const Date& lhs, const Date& rhs) {
   return (lhs.year == rhs.year && lhs.month == rhs.month && lhs.day == rhs.day);
 }
 
+bool operator<(const Date& lhs, const Date& rhs) {
+  // воспользуемся тем фактом, что векторы уже можно сравнивать на <:
+  // создадим вектор из года, месяца и дня для каждой даты и сравним их
+  return vector<int>{lhs.year, lhs.month, lhs.day} < vector<int>{rhs.year, rhs.month, rhs.day};
+}
+
 Date ParseDate(istringstream& date_stream) {
   bool ok = true;
 

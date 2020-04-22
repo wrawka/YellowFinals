@@ -4,6 +4,7 @@
 
 #include <iostream>
 #include <sstream>
+#include <vector>
 
 class Date {
 public:
@@ -15,6 +16,7 @@ public:
 
   friend std::ostream& operator<< (std::ostream& out, const Date& date);
   friend bool operator== (const Date& lhs, const Date& rhs);
+  friend bool operator< (const Date& lhs, const Date& rhs);
 
 private:
   int year;

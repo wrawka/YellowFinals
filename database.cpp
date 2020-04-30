@@ -26,6 +26,6 @@ vector< pair<Date, string> > Database::FindIf(bool (*lambda)(const Date& date, c
   cout << date;
 }
 
-void Database::RemoveIf(bool (*lambda)(const Date& date, const string& event)) {
+// void Database::RemoveIf(bool (*lambda)(const Date& date, const string& event)) {
 
-}
+// }

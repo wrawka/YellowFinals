@@ -8,7 +8,7 @@ private:
 public:
     Node(/* args */);
     ~Node();
-    bool Evaluate(Date date, std::string condition);
+    virtual bool Evaluate(Date date, std::string condition) const = 0;
 };
 
 

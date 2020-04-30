@@ -44,12 +44,26 @@ public:
 	 * Встретив команду Del condition, ваша программа должна удалить
 	 * из базы данных все события, удовлетворяющие условию condition
 	 */
-	void RemoveIf(bool (*lambda)(const Date& date, const string& event));
+	template <typename F>
+	int RemoveIf(F f) {
+		int cnt = 0;
+		bool pred(F& f) {
+			if (f) {
+				cnt++;
+				return true;
+			} else {
+				return false;
+			}
+		}
+		remove_if(ordered_storage.begin(), ordered_storage.end(), pred(f));
+		return cnt;
+	}
 
 private:
-	map<Date, set<string>> storage;
-	map<Date, vector<string>> ordered_storage;
+	map< Date, set<string> > storage;
+	map< Date, vector<string> > ordered_storage;
 };
+
 
 
 

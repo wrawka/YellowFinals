@@ -23,6 +23,7 @@ Date::Date(int new_year = 1970, int new_month = 1, int new_day = 1) {
   day = new_day;
 }
 
+// TODO: зачем эти методы
 int Date::GetYear() const 	{ return year; }
 int Date::GetMonth() const 	{ return month; }
 int Date::GetDay() const 	  { return day; }

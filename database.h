@@ -30,7 +30,7 @@ public:
 	 * По команде Last date нужно вывести
 	 * последнее из событий, случившихся к дате date.
 	 */
-	void Last();
+	pair<Date, string> Last(Date date);
 
 	/*
 	 * Встретив команду Find condition, ваша программа
@@ -38,23 +38,37 @@ public:
 	 * которые в данный момент содержатся в базе данных
 	 * и удовлетворяют условию condition.
 	 */
-	vector< pair<Date, string> > FindIf(bool (*lambda)(const Date& date, const string& event));
+
+	// bool predicate(const Date &date, const std::string &event)
+	// template <typename F>
+	vector< pair<Date, string> > FindIf(bool (*predicate)(const Date &date, const std::string &event)) {
+		vector< pair<Date, string> > results;
+		auto result = find_if(ordered_storage.begin(), ordered_storage.end(), predicate);
+		while (result != ordered_storage.end()) {
+			results.push_back(*result);
+			result = find_if(result, ordered_storage.end(), predicate);
+		}
+		return results;
+	}
 
 	/*
 	 * Встретив команду Del condition, ваша программа должна удалить
 	 * из базы данных все события, удовлетворяющие условию condition
 	 */
+	
+	template <typename F>
+	bool pred(F& f) {
+		if (f) {
+			cnt++;
+			return true;
+		} else {
+			return false;
+		}
+	}
+
 	template <typename F>
 	int RemoveIf(F f) {
 		int cnt = 0;
-		bool pred(F& f) {
-			if (f) {
-				cnt++;
-				return true;
-			} else {
-				return false;
-			}
-		}
 		remove_if(ordered_storage.begin(), ordered_storage.end(), pred(f));
 		return cnt;
 	}

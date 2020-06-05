@@ -8,6 +8,7 @@
 
 class Date {
 public:
+  Date();
   Date(int new_year, int new_month, int new_day);
 
   int GetYear() const;

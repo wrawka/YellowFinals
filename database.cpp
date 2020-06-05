@@ -18,13 +18,21 @@ void Database::Print(ostream& os) const {
   }
 }
 
-void Database::Last() {
-
+pair<Date, string> Database::Last(Date date) {
+  Date last_date;
+  if (ordered_storage.find(date) != ordered_storage.end()) {
+    last_date = date;
+  } else {
+    last_date = (*(--ordered_storage.lower_bound(date))).first;
+  }
+  string last_event = ordered_storage.at(last_date).back();
+  
+  return make_pair(last_date, last_event);
 }
 
-vector< pair<Date, string> > Database::FindIf(bool (*lambda)(const Date& date, const string& event)) {
-  cout << date;
-}
+// vector< pair<Date, string> > Database::FindIf(bool (*lambda)(const Date& date, const string& event)) {
+//   cout << date;
+// }
 
 // void Database::RemoveIf(bool (*lambda)(const Date& date, const string& event)) {
 

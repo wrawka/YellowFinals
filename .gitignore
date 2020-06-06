@@ -3,3 +3,4 @@ CMakeLists.txt
 .vscode/
 build/
 yellow_finals.code-workspace
+finals_ws.code-workspace

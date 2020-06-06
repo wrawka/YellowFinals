@@ -22,7 +22,7 @@ void Database::Last() {
 
 }
 
-vector< pair<Date, string> > Database::FindIf(bool (*lambda)(const Date& date, const string& event)) {
+vector< pair<Date, string> > Database::FindIf(lambda []bool (const Date &date, const std::string &event)->bool) {
   cout << date;
 }
 

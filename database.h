@@ -38,7 +38,7 @@ public:
 	 * которые в данный момент содержатся в базе данных
 	 * и удовлетворяют условию condition.
 	 */
-	vector< pair<Date, string> > FindIf(bool (*lambda)(const Date& date, const string& event));
+	vector< pair<Date, string> > FindIf(lambda []bool (const Date &date, const std::string &event)->bool);
 
 	/*
 	 * Встретив команду Del condition, ваша программа должна удалить

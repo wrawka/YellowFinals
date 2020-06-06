@@ -4,8 +4,9 @@
 
 using namespace std;
 
+Date::Date() : year(1970), month(1), day(1) {};
 // конструктор выбрасывает исключение, если его аргументы некорректны
-Date::Date(int new_year = 1970, int new_month = 1, int new_day = 1) {
+Date::Date(int new_year, int new_month, int new_day) {
   
   //год может быть любым
   year = new_year;	
@@ -40,7 +41,7 @@ bool operator== (const Date& lhs, const Date& rhs) {
   return (lhs.year == rhs.year && lhs.month == rhs.month && lhs.day == rhs.day);
 }
 
-bool operator<(const Date& lhs, const Date& rhs) {
+bool operator< (const Date& lhs, const Date& rhs) {
   // воспользуемся тем фактом, что векторы уже можно сравнивать на <:
   // создадим вектор из года, месяца и дня для каждой даты и сравним их
   return vector<int>{lhs.year, lhs.month, lhs.day} < vector<int>{rhs.year, rhs.month, rhs.day};

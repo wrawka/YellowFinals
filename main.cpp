@@ -19,6 +19,11 @@ string ParseEvent(istream& is) {
   return out;
 }
 
+ostream& operator<< (ostream& os, const std::pair<Date, std::string> p) {
+  os << p.first << " " << p.second;
+  return os;
+}
+
 void TestAll();
 
 int main() {

@@ -1,8 +1,7 @@
 #pragma once
 #include "Date.h"
 
-class Node
-{
+class Node {
 private:
     /* data */
 public:
@@ -21,9 +20,16 @@ class LogicalOperationNode : public Node {
 };
 
 class DateComparisonNode : public Node {
+private:
 
+public:
+    DateComparisonNode();
+    DateComparisonNode(Comparison cmp, Date date);
+    ~DateComparisonNode();
 };
 
 class EventComparisonNode : public Node {
-
+    EventComparisonNode();
+    EventComparisonNode(Comparison cmp, const string& event);
+    ~EventComparisonNode();
 };

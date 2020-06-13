@@ -4,7 +4,9 @@
 
 using namespace std;
 
+// конструктор по-умолчанию
 Date::Date() : year(1970), month(1), day(1) {};
+
 // конструктор выбрасывает исключение, если его аргументы некорректны
 Date::Date(int new_year, int new_month, int new_day) {
   
@@ -24,7 +26,7 @@ Date::Date(int new_year, int new_month, int new_day) {
   day = new_day;
 }
 
-// TODO: зачем эти методы
+// TODO: зачем теперь эти методы
 int Date::GetYear() const 	{ return year; }
 int Date::GetMonth() const 	{ return month; }
 int Date::GetDay() const 	  { return day; }

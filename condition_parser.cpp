@@ -1,4 +1,7 @@
 #include "Token.h"
+#include "Node.h"
+#include "condition_parser.h"
+
 #include <map>
 
 using namespace std;

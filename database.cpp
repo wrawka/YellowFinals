@@ -30,10 +30,18 @@ pair<Date, string> Database::Last(Date date) {
   return make_pair(last_date, last_event);
 }
 
-// vector< pair<Date, string> > Database::FindIf(bool (*lambda)(const Date& date, const string& event)) {
-//   cout << date;
-// }
+vector< pair<Date, string> > Database::FindIf(function < bool(const Date &date, const std::__cxx11::string &event) > pred) {
+  vector< pair<Date, string> > output;
+  for (const auto& date : ordered_storage) {
+    for (const auto& event : date.second) {
+    	
+    }
+  }
+  return output;
+}
 
-// void Database::RemoveIf(bool (*lambda)(const Date& date, const string& event)) {
+int Database::RemoveIf(function < bool(const Date &date, const std::__cxx11::string &event) > pred) {
+  int counter;
 
-// }
+  return counter;
+}

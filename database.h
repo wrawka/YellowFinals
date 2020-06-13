@@ -6,6 +6,9 @@
 #include <map>
 #include <set>
 #include <vector>
+#include <algorithm>
+#include <functional>
+
 using namespace std;
 
 class Database {
@@ -41,37 +44,14 @@ public:
 
 	// bool predicate(const Date &date, const std::string &event)
 	// template <typename F>
-	vector< pair<Date, string> > FindIf(bool (*predicate)(const Date &date, const std::string &event)) {
-		vector< pair<Date, string> > results;
-		auto result = find_if(ordered_storage.begin(), ordered_storage.end(), predicate);
-		while (result != ordered_storage.end()) {
-			results.push_back(*result);
-			result = find_if(result, ordered_storage.end(), predicate);
-		}
-		return results;
-	}
+	vector< pair<Date, string> > FindIf(function < bool(const Date &date, const std::__cxx11::string &event) > pred);
 
 	/*
 	 * Встретив команду Del condition, ваша программа должна удалить
 	 * из базы данных все события, удовлетворяющие условию condition
 	 */
-	
-	template <typename F>
-	bool pred(F& f) {
-		if (f) {
-			cnt++;
-			return true;
-		} else {
-			return false;
-		}
-	}
 
-	template <typename F>
-	int RemoveIf(F f) {
-		int cnt = 0;
-		remove_if(ordered_storage.begin(), ordered_storage.end(), pred(f));
-		return cnt;
-	}
+	int RemoveIf(function < bool(const Date &date, const std::__cxx11::string &event) > pred);
 
 private:
 	map< Date, set<string> > storage;

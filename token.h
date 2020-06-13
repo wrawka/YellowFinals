@@ -2,6 +2,8 @@
 
 #include <sstream>
 #include <vector>
+#include <memory>
+
 using namespace std;
 
 enum class TokenType {

@@ -5,6 +5,8 @@
 #include <map>
 #include <set>
 
+#include "test_runner.h"
+
 using namespace std;
 
 template <class T>

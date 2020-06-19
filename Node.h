@@ -1,5 +1,9 @@
 #pragma once
+#include <memory>
 #include "Date.h"
+#include "condition_parser.h"
+
+using namespace std;
 
 class Node {
 private:
@@ -12,12 +16,24 @@ public:
 
 
 class EmptyNode : public Node {
+private:
+
+public:
     virtual bool Evaluate(Date date, string condition);
 };
 
-class LogicalOperationNode : public Node {
 
+class LogicalOperationNode : public Node {
+private:
+    shared_ptr<Node> left_;
+    shared_ptr<Node> right_;
+    LogicalOperation op_;
+
+public:
+    LogicalOperationNode(const LogicalOperation& op, shared_ptr<Node> lhs, shared_ptr<Node> rhs);
+    virtual bool Evaluate(Date date, string condition);
 };
+
 
 class DateComparisonNode : public Node {
 private:
@@ -30,6 +46,7 @@ public:
     ~DateComparisonNode();
     virtual bool Evaluate(Date date, string condition);
 };
+
 
 class EventComparisonNode : public Node {
 private:

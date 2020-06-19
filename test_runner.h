@@ -1,4 +1,9 @@
 #pragma once
+#include <map>
+#include <set>
+
+using namespace std;
+
 
 template <class T>
 ostream& operator << (ostream& os, const set<T>& s);

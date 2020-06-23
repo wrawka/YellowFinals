@@ -1,7 +1,7 @@
 #include "Database.h"
 #include "Date.h"
-#include "Node.h"
 #include "condition_parser.h"
+#include "Node.h"
 #include "test_runner.h"
 
 #include <iostream>

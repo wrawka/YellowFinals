@@ -1,7 +1,10 @@
+#include <memory>
+
+#include "Date.h"
 #include "Node.h"
 #include "condition_parser.h"
 
-Node::Node(){};
+Node::Node(){}
 bool EmptyNode::Evaluate(Date date, string condition) {return true;}
 
 // LogicalOperationNode

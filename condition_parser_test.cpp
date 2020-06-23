@@ -1,7 +1,10 @@
 #include "condition_parser.h"
 #include "test_runner.h"
+#include "Node.h"
 
+#include <memory>
 #include <sstream>
+
 using namespace std;
 
 void TestParseCondition() {

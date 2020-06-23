@@ -4,3 +4,4 @@ CMakeLists.txt
 build/
 yellow_finals.code-workspace
 finals_ws.code-workspace
+__CMakeLists.txt

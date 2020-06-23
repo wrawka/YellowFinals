@@ -1,10 +1,9 @@
 #pragma once
-
+#include <memory>
 #include "Date.h"
-#include "enums.h"
+#include "condition_parser.h"
 
 using namespace std;
-
 
 class Node {
 private:

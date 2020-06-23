@@ -1,24 +1,12 @@
 #pragma once
 
-#include "Node.h"
 #include <memory>
 #include <iostream>
+#include "enums.h"
 
 using namespace std;
 
-enum class Comparison {
-  Less,
-  LessOrEqual,
-  Greater,
-  GreaterOrEqual,
-  Equal,
-  NotEqual,
-};
-
-enum class LogicalOperation {
-  Or,
-  And,
-};
+class Node;
 
 shared_ptr<Node> ParseCondition(istream& is);
 

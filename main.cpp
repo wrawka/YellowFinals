@@ -14,7 +14,7 @@ using namespace std;
 
 string ParseEvent(istream& is) {
  // Реализуйте эту функцию
-  string out;
+  std::string out;
   getline(is, out);
   return out;
 }
@@ -27,6 +27,7 @@ ostream& operator<< (ostream& os, const std::pair<Date, std::string> p) {
 void TestAll();
 
 int main() {
+
 TestAll();
 
 Database db;

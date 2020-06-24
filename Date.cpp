@@ -64,7 +64,7 @@ Date ParseDate(istringstream& date_stream) {
 
   int day;
   ok = ok && (date_stream >> day);			// забираем день
-  ok = ok && (date_stream.peek() == ' ');	// проверяем пробел в конце Даты
+  ok = ok && ((date_stream.peek() == ' ') || date_stream.eof());	// проверяем пробел в конце Даты
 
   if (!ok) {
     throw logic_error("Wrong date format: " + date_stream.str());

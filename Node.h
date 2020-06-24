@@ -44,7 +44,7 @@ private:
 public:
     DateComparisonNode();
     DateComparisonNode(Comparison cmp, Date date);
-    ~DateComparisonNode();
+    // ~DateComparisonNode();
     virtual bool Evaluate(Date date, string condition) const override;
 };
 
@@ -53,10 +53,10 @@ class EventComparisonNode : public Node {
 private:
     const Comparison op_; // операция сравнения
     const string event_; // событие-референс
-    virtual bool Evaluate(Date date, string condition) const override;
 
 public:
     EventComparisonNode();
     EventComparisonNode(Comparison cmp, const string& event);
-    ~EventComparisonNode();
+    virtual bool Evaluate(Date date, string condition) const override;
+    // ~EventComparisonNode();
 };

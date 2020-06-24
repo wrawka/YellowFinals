@@ -1,18 +1,17 @@
 #include <memory>
 
-#include "Date.h"
 #include "Node.h"
 #include "condition_parser.h"
 
 Node::Node(){}
-bool EmptyNode::Evaluate(Date date, string condition) {return true;}
+bool EmptyNode::Evaluate(Date date, string condition) const {return true;}
 
 // LogicalOperationNode
 LogicalOperationNode::LogicalOperationNode(const LogicalOperation& op, 
         shared_ptr<Node> lhs, shared_ptr<Node> rhs) : 
-        op_(op), left_{lhs}, right_{rhs} {}
+        op_(op), left_(lhs), right_(rhs) {}
 
-bool LogicalOperationNode::Evaluate(Date date, string condition) {
+bool LogicalOperationNode::Evaluate(Date date, string condition) const {
     bool left_eval{left_->Evaluate(date, condition)};
     bool right_eval{right_->Evaluate(date, condition)};
     switch (op_)
@@ -35,7 +34,7 @@ bool LogicalOperationNode::Evaluate(Date date, string condition) {
 // DateComparisonNode
 DateComparisonNode::DateComparisonNode(Comparison cmp, Date date) : op_(cmp), date_(date) {}
 
-bool DateComparisonNode::Evaluate(Date date, string condition) {
+bool DateComparisonNode::Evaluate(Date date, string condition) const {
     switch (op_)
     {
     case Comparison::Less :
@@ -72,7 +71,7 @@ bool DateComparisonNode::Evaluate(Date date, string condition) {
 // EventComparisonNode
 EventComparisonNode::EventComparisonNode(Comparison cmp, const string& event) : op_(cmp), event_(event) {}
 
-bool EventComparisonNode::Evaluate(Date date, string condition) {
+bool EventComparisonNode::Evaluate(Date date, string condition) const {
     switch (op_)
     {
     case Comparison::Equal:
